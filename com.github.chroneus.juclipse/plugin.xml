@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin> 	
+   <extension point="org.eclipse.ui.editors">
+      	<editor
+      		id="com.github.chroneus.juclipse.editor.JuliaEditor"
+      		class="com.github.chroneus.juclipse.editor.JuliaEditor"
+      		default="true"
+      		icon="icons/julia.jpg"
+      		name="Julia Editor">
+      		<contentTypeBinding
+        		contentTypeId="com.github.chroneus.juclipse.JuliaContentType">
+        	</contentTypeBinding>
+      	</editor>
+	</extension>
+
+    <extension point="org.eclipse.core.runtime.contentTypes">
+        <content-type
+        	id="com.github.chroneus.juclipse.JuliaContentType"
+            base-type="org.eclipse.core.runtime.text"
+            file-extensions="jl"
+            name="Julia File Type"
+            priority="high">
+        </content-type>
+    </extension>
+
+	<extension point="org.eclipse.core.filebuffers.documentSetup"
+      	id="com.github.chroneus.juclipse.editor.JuliaDocumentSetup"
+      	name="Julia Document Setup">
+		<participant
+			extensions="jl"
+        	class="com.github.chroneus.juclipse.editor.JuliaDocumentSetup">
+   		</participant>
+	</extension>
+
+	<extension point="org.eclipse.core.runtime.preferences">
+        <initializer class="com.github.chroneus.juclipse.preferences.JuliaPreferenceInitializer"/>
+    </extension>
+    
+	<extension point="org.eclipse.ui.preferencePages">
+       	<page          
+          	class="com.github.chroneus.juclipse.preferences.JuliaMainPreferencePage"
+          	id="com.github.chroneus.juclipse.preferences.JuliaMainPreferencePage"
+          	name="Julia"/>
+    	<page
+          	category="com.github.chroneus.juclipse.preferences.JuliaMainPreferencePage"
+          	class="com.github.chroneus.juclipse.preferences.JuliaSyntaxColorPage"
+          	id="com.github.chroneus.juclipse.preferences.JuliaSyntaxColorPage"
+          	name="Syntax Coloringyntax Coloring"/>
+    	<page
+           	category="com.github.chroneus.juclipse.preferences.JuliaMainPreferencePage"
+           	class="com.github.chroneus.juclipse.preferences.JuliaInterpreterPreferencePage"
+           	id="com.github.chroneus.juclipse.preferences.JuliaInterpreterPreferencePage"
+           	name="Interpreter"/>
+     </extension>      
+
+     <extension point="org.eclipse.debug.core.launchConfigurationTypes">
+        <launchConfigurationType
+            id="com.github.chroneus.juclipse.launch.JuliaLaunchConfigurationType"
+      		delegate="com.github.chroneus.juclipse.launch.JuliaLaunchConfigurationDelegate"
+      		modes="run"
+      		public="true"
+      		name="Julia">
+   		</launchConfigurationType>
+	 </extension>
+
+	<extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+		<launchConfigurationTabGroup
+			class="com.github.chroneus.juclipse.launch.JuliaTabGroup"
+			description="Configure Julia Settings"
+			id="com.github.chroneus.juclipse.launch.JuliaTabGroup"
+			type="com.github.chroneus.juclipse.launch.JuliaLaunchConfigurationType">
+		</launchConfigurationTabGroup>
+	</extension>   	
+
+	 <extension point="org.eclipse.dltk.console.ui.scriptConsole">
+		<scriptConsole
+			class="com.github.chroneus.juclipse.launch.JuliaConsoleFactory"
+			natureID="com.github.chroneus.juclipse.nature" />
+	 </extension>
+	 
+	 <extension point="org.eclipse.ui.console.consoleFactories">
+		<consoleFactory
+			class="com.github.chroneus.juclipse.launch.JuliaConsoleFactory"
+			icon="icons/julia.jpg" 
+			label="Julia Console" />
+	 </extension>
+	 
+	<extension point="org.eclipse.core.resources.natures"
+         id="com.github.chroneus.juclipse.nature">
+      	<runtime>
+         	<run class="com.github.chroneus.juclipse.JuliaNature"/>
+      	</runtime>
+   	</extension>
+   	
+   	<extension point="org.eclipse.dltk.console.scriptInterpreter">
+      	<scriptInterpreter
+            class="com.github.chroneus.juclipse.launch.JuliaInterpreter"
+            natureID="com.github.chroneus.juclipse.nature"/>
+   	</extension>
+   	
+   	<extension point="org.eclipse.dltk.launching.interpreterInstallTypes">
+        <interpreterInstallType
+            class="com.github.chroneus.juclipse.launch.JuliaInterpreterInstallType"
+            id="com.github.chroneus.juclipse.launch.JuliaInterpreterInstallType">
+      	</interpreterInstallType>   
+   	</extension>   	
+</plugin>
