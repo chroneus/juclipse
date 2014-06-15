@@ -53,7 +53,7 @@ public class JuliaInterpreterInstallType extends AbstractInterpreterInstallType 
 	
 	protected String[] buildCommandLine(IFileHandle installLocation,
 			IFileHandle pathFile) {
-		return new String[] { installLocation.getCanonicalPath(), "-q", pathFile.getCanonicalPath() };
+		return new String[] { installLocation.getCanonicalPath(), "", pathFile.getCanonicalPath() };
 	}
 	
 	protected IPath createPathFile(IDeployment deployment) throws IOException {

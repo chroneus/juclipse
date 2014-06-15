@@ -19,7 +19,7 @@ public class JuliaMainPreferencePage extends
 	}
 
 	protected void setDescription() {
-		setDescription("Octave Main Preference Page");
+		setDescription("Julia Main Preference Page");
 	}
 
 	protected void setPreferenceStore() {

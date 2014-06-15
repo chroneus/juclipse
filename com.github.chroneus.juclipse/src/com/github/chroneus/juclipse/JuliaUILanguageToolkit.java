@@ -19,12 +19,12 @@ public class JuliaUILanguageToolkit implements IDLTKUILanguageToolkit {
 	private static final String INTERPRETERS_PREFERENCE_PAGE_ID = "net.sf.ui.preferences.interpreters";
 	private static final String DEBUG_PREFERENCE_PAGE_ID = "net.sf.octclipse.preferences.debug";
 	private static final String[] EDITOR_PREFERENCE_PAGES_IDS = {
-		"org.dworks.octaveide.preferences.editor", 
-		"org.dworks.octaveide.preferences.editor.templates", 
-		"org.dworks.octaveide.preferences.editor.syntaxcoloring", 
-		"org.dworks.octaveide.preferences.editor.hovers", 
-		"org.dworks.octaveide.preferences.editor.smarttyping", 
-		"org.dworks.octaveide.preferences.editor.folding", 
+		"com.github.chroneus.juliaide.preferences.editor", 
+		"com.github.chroneus.juliaide.preferences.editor.templates", 
+		"com.github.chroneus.juliaide.preferences.editor.syntaxcoloring", 
+		"com.github.chroneus.juliaide.preferences.editor.hovers", 
+		"com.github.chroneus.juliaide.preferences.editor.smarttyping", 
+		"com.github.chroneus.juliaide.preferences.editor.folding", 
 	};
 	
 	private static IDLTKUILanguageToolkit instance = new JuliaUILanguageToolkit();
@@ -40,7 +40,7 @@ public class JuliaUILanguageToolkit implements IDLTKUILanguageToolkit {
 	 * Identify the Octave editor
 	 */
 	public String getEditorId(Object inputElement) {
-		return "org.dworks.octaveide.editor.OctaveEditor";
+		return "com.github.chroneus.juliaide.editor.JuliaEditor";
 	}
 	
 	/**

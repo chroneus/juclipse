@@ -13,10 +13,10 @@ import com.github.chroneus.juclipse.text.JuliaTextTools;
 public class JuliaPlugin extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "org.dworks.octaveide";
+	public static final String PLUGIN_ID = "com.github.chroneus.juclipse";
 
 	// The shared instance
-	private static JuliaPlugin plugin;
+	private static JuliaPlugin plugin=new JuliaPlugin();
 	
 	// The IDE text tools instance
 	private JuliaTextTools fTextTools;
