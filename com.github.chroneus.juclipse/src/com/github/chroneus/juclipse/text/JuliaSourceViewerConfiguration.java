@@ -48,7 +48,7 @@ public class JuliaSourceViewerConfiguration extends
 		DefaultDamagerRepairer dr = new DefaultDamagerRepairer(codeScanner);
 		reconciler.setDamager(dr, IDocument.DEFAULT_CONTENT_TYPE);
 		reconciler.setRepairer(dr, IDocument.DEFAULT_CONTENT_TYPE);
-
+		/*
 		// Create a DefaultDamagerRepairer for string partitions
 		dr = new DefaultDamagerRepairer(stringScanner);
 		reconciler.setDamager(dr, IJuliaPartitions.JULIA_STRING);
@@ -58,7 +58,7 @@ public class JuliaSourceViewerConfiguration extends
 		dr = new DefaultDamagerRepairer(commentScanner);
 		reconciler.setDamager(dr, IJuliaPartitions.JULIA_COMMENT);
 		reconciler.setRepairer(dr, IJuliaPartitions.JULIA_COMMENT);
-
+			*/
 		return reconciler;
 	}
 
@@ -73,14 +73,14 @@ public class JuliaSourceViewerConfiguration extends
 
 	   // Create a scanner for the script code
 	   codeScanner = new JuliaCodeScanner(getColorManager(), fPreferenceStore);
-	   
+	   /* not worked
 	   // Create a scanner for string partitions
 	   stringScanner = new SingleTokenScriptScanner(getColorManager(), 
 					fPreferenceStore, DLTKColorConstants.DLTK_STRING);
-	   
 	   // Create a scanner for comment partitions
 	   commentScanner = new SingleTokenScriptScanner(getColorManager(), 
 					fPreferenceStore, DLTKColorConstants.DLTK_SINGLE_LINE_COMMENT);
+					*/
 	}
 	
 	protected IInformationControlCreator getOutlinePresenterControlCreator(

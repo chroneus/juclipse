@@ -1,3 +1,5 @@
+#check how it looks
+const HELLO="hello world"
 function mandel(z)
     c = z
     maxiter = 80
